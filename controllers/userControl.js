@@ -103,10 +103,61 @@ const createFile = (users) => {
       user.files.push(req.body.file)
       res.status(201).json()
     } else{
+      res.status(400).json({error: "bad request"})
+    }
+  }
+}
+
+const deleteFile = (users) => {
+  return async (req, res) => {
+
+    const fileId = req.body.fileId
+    const userId = req.userData.id
+    const user = users.find(user => user.id === userId)
+    if(user){
+      const file = user.files.find(file => file.id === fileId)
+      for(let i = 0; i < user.files.length; i++){ 
+        if ( user.files[i].id === fileId) { 
+            user.files.splice(i, 1); 
+        }
+      }
+      res.status(202).json()
+    } else{
+      res.status(400).json()
+    }
+  }
+}
+
+const loadFile = (users) => {
+  return async (req, res) => {
+
+    const fileId = req.body.fileId
+    const userId = req.userData.id
+    const user = users.find(user => user.id === userId)
+    if(user){
+      const file = user.files.find(file => file.id === fileId)
+      res.status(202).json({file: file})
+    } else{
+      res.status(400).json()
+    }
+  }
+}
+
+const patchFile = (users) => {
+  return async (req, res) => {
+
+    const fileId = req.body.file.id
+    const userId = req.userData.id
+    const user = users.find(user => user.id === userId)
+    if(user){
+      const index = user.files.findIndex(file => file.id === fileId)
+      user.files[index] = req.body.file
+      res.status(202).json()
+    } else{
       res.status(400).json()
     }
   }
 }
 
 
-module.exports = { showUsers, addUser, loginUser, getFiles, createFile }
+module.exports = { showUsers, addUser, loginUser, getFiles, createFile, deleteFile, loadFile, patchFile }
