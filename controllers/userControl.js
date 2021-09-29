@@ -1,7 +1,7 @@
 require('dotenv').config()
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const {registerValidation, loginValidation} = require('./validation')
+const {registerValidation, loginValidation, fileValidation} = require('./validation')
 
 const showUsers = (users) => {
   return (req, res) => {
@@ -30,6 +30,7 @@ const addUser = (users) => {
       const user = {
         id: req.body.id,
         name: req.body.name,
+        files: [],
         email: hashedEmail,
         password: hashedPassword
       }
@@ -78,5 +79,34 @@ const loginUser = (users) => {
   }
 }
 
+const getFiles = (users) => {
+  return async (req, res) => {
+      const id = req.userData.id
+      const user = users.find(user => user.id === id)
+      if(user){
+        res.status(200).json({files: user.files})
+      } else{
+        res.status(400).json()
+      }
+  }
+}
 
-module.exports = { showUsers, addUser, loginUser }
+const createFile = (users) => {
+  return async (req, res) => {
+    //Validation
+    const { error } = fileValidation(req.body.file)
+    if (error) return res.status(400).json({error: error.details[0].message})
+    //create file
+    const id = req.userData.id
+    const user = users.find(user => user.id === id)
+    if(user){
+      user.files.push(req.body.file)
+      res.status(201).json()
+    } else{
+      res.status(400).json()
+    }
+  }
+}
+
+
+module.exports = { showUsers, addUser, loginUser, getFiles, createFile }
