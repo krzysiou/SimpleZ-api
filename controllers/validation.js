@@ -26,7 +26,9 @@ const fileValidation = (data) => {
     const schema = Joi.object({
         id: Joi.string(),
         name: Joi.string().min(3).required().max(20),
-        date: Joi.date(),
+        date: Joi.string(),
+        sumEcts: Joi.string(),
+        sumHours: Joi.string(),
         info: Joi.object({
           name: Joi.string().min(3).required().max(20),
           surname: Joi.string().min(3).required().max(20),
