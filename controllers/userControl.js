@@ -78,7 +78,7 @@ const loginUser = (users) => {
       }
   }
 }
-
+//return user files
 const getFiles = (users) => {
   return async (req, res) => {
       const id = req.userData.id
@@ -128,6 +128,7 @@ const deleteFile = (users) => {
   }
 }
 
+//return specific file
 const loadFile = (users) => {
   return async (req, res) => {
 
@@ -143,6 +144,7 @@ const loadFile = (users) => {
   }
 }
 
+//update file
 const patchFile = (users) => {
   return async (req, res) => {
 
