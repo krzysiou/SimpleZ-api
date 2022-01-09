@@ -1,6 +1,6 @@
 # SimpleZ-api
 
-This is a ```Node.js RestAPI``` developed for my [SimpleZ](https://github.com/krzysiou/SimpleZ) website. It contains endpoints which allow front-end to send and request data. It got hot-reload feature using nodemon. To hos server on your computer simply type ```npm install``` and follow it by ```nodemon index.js```.
+This is a ```Node.js RestAPI``` developed for my [SimpleZ](https://github.com/krzysiou/SimpleZ) website. It contains endpoints which allow front-end to send and request data. It got hot-reload feature using nodemon. To host server on your computer simply type ```npm install``` and follow it by ```nodemon index.js```.
 
 ## Overview
 
