@@ -5,7 +5,7 @@ const cors = require('cors')
 const app = express()
 const port = 3000
 
-const cors = require('cors')
+app.use(cors())
 app.use(express.json())
 
 const users = []
