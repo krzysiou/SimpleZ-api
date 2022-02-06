@@ -1,11 +1,11 @@
 # SimpleZ-api
 
-This is a ```Node.js RestAPI``` developed for my [SimpleZ](https://github.com/krzysiou/SimpleZ) website. It contains endpoints which allow front-end to send and request data. It got hot-reload feature using nodemon. To hos server on your computer simply type ```npm install``` and follow it by ```nodemon index.js```.
+This is a ```Node.js RestAPI``` developed for my [SimpleZ](https://github.com/krzysiou/SimpleZ) website. It contains endpoints which allow front-end to send and request data. It got hot-reload feature using nodemon. To host server on your computer simply type ```npm install``` and follow it by ```nodemon index.js```.
 
 ## Overview
 
 The most important file on the whole server must be [index.js](./index.js), it contains all endpoints corresponding to given functions that will be called upon request hitting the endpoint.
-I designed a few controllers located in [this folder](./controllers) they contain methods which operate on set of values and manage the data accordingly.
+I designed a few controllers located in [this folder](./controllers) they contain methods which operate on set of values and manage the data accordingly. Make sure to provide your working directory with ```.env file``` containing key ```ACCESS_TOKEN_SECRET=``` and give it a custom value of your choice. It is used to generate and sign JWT tokens.
 
 ## Controllers
 
