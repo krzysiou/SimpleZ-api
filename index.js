@@ -1,9 +1,11 @@
 const { showUsers, addUser, loginUser, getFiles, createFile, deleteFile, loadFile, patchFile } = require('./controllers/userControl.js');
 const checkAuth = require('./controllers/check-auth')
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const port = 3000
 
+const cors = require('cors')
 app.use(express.json())
 
 const users = []
