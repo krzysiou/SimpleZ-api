@@ -13,6 +13,7 @@ const addUser = (users) => {
   return async (req, res) => {
     //Validate
     const { error } = registerValidation(req.body)
+    console.log(registerValidation(req.body));
     if (error) return res.status(400).json({error: error.details[0].message})
 
     //check if username taken
