@@ -2,6 +2,12 @@
 
 This is a ```Node.js RestAPI``` developed for my [SimpleZ](https://github.com/krzysiou/SimpleZ) website. It contains endpoints which allow front-end to send and request data. It got hot-reload feature using nodemon. To host server on your computer simply type ```npm install``` then provide your working directory with ```.env file``` containing key ```ACCESS_TOKEN_SECRET``` and give it a custom value of your choice. Enter ```nodemon index.js``` in command line and you are ready to go.
 
+## Technologies
+
+- Express
+- Joi
+- JWT
+
 ## Overview
 
 The most important file on the whole server must be [index.js](./index.js), it contains all endpoints corresponding to given functions that will be called upon request hitting the endpoint.
